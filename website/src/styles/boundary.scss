@@ -1,0 +1,62 @@
+$boundaries: margin, padding;
+
+@each $boundary in $boundaries {
+  .#{$boundary} {
+    @for $i from 0 through 10{
+      @for $y from 1 through 10 {
+        &-#{$i}#{if($y != 10, '\\.' + $y, '')} {
+          #{$boundary}: #{$i}#{if($y != 10, '.' + $y, '')}rem !important;
+        }
+        &-minus-#{$i}#{if($y != 10, '\\.' + $y, '')} {
+          #{$boundary}: -#{$i}#{if($y != 10, '.' + $y, '')}rem !important;
+        }
+      }
+    }
+    $sides: top, right, bottom, left;
+    @each $side in $sides {
+       @for $i from 0 through 10{
+        @for $y from 1 through 10 {
+          &-#{$side}-#{$i}#{if($y != 10, '\\.' + $y, '')} {
+            #{$boundary}-#{$side}: #{$i}#{if($y != 10, '.' + $y, '')}rem !important;
+          }
+          &-#{$side}-minus-#{$i}#{if($y != 10, '\\.' + $y, '')} {
+            #{$boundary}-#{$side}: -#{$i}#{if($y != 10, '.' + $y, '')}rem !important;
+          }
+        }
+      }
+    }
+
+    &-horizontal{
+      @for $i from 0 through 10{
+        @for $y from 1 through 10 {
+          &-#{$i}#{if($y != 10, '\\.' + $y, '')} {
+            #{$boundary}-left: #{$i}#{if($y != 10, '.' + $y, '')}rem !important;
+            #{$boundary}-right: #{$i}#{if($y != 10, '.' + $y, '')}rem !important;
+          }
+          &-minus-#{$i}#{if($y != 10, '\\.' + $y, '')} {
+            #{$boundary}-left: -#{$i}#{if($y != 10, '.' + $y, '')}rem !important;
+            #{$boundary}-right: -#{$i}#{if($y != 10, '.' + $y, '')}rem !important;
+          }
+        }
+      }
+    }
+    &-vertical{
+      @for $i from 0 through 10{
+        @for $y from 1 through 10 {
+          &-#{$i}#{if($y != 10, '\\.' + $y, '')} {
+            #{$boundary}-top: #{$i}#{if($y != 10, '.' + $y, '')}rem !important;
+            #{$boundary}-bottom: #{$i}#{if($y != 10, '.' + $y, '')}rem !important;
+          }
+          &-minus-#{$i}#{if($y != 10, '\\.' + $y, '')} {
+            #{$boundary}-top: -#{$i}#{if($y != 10, '.' + $y, '')}rem !important;
+            #{$boundary}-bottom: -#{$i}#{if($y != 10, '.' + $y, '')}rem !important;
+          }
+        }
+      }
+    }
+  }
+}
+
+.radius{
+  border-radius: 50%;
+}

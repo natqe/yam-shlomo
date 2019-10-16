@@ -1,0 +1,36 @@
+{
+	"React function component": {
+		"prefix": "rf",
+		"body": [
+			"import React, { FunctionComponent } from 'react'",
+			"",
+			"export class ${1:Example}Props { }",
+			"",
+			"const ${1:Example}: FunctionComponent<${1:Example}Props> = () => {",
+			"    return <>",
+			"    ${2}",
+			"    </>",
+			"}",
+			"",
+			"export default ${1:Example}"
+		],
+		"description": "Create React Function component"
+	},
+	"React Context": {
+		"prefix": "rc",
+		"body": [
+			"import React, { createContext, FunctionComponent } from 'react'",
+			"",
+			"export class ${1:Example}ContextValue { }",
+			"",
+			"export const ${1:Example}Context = createContext(new ${1:Example}ContextValue)",
+			"",
+			"const ${1:Example}Provider: FunctionComponent = ({ children }) => {",
+			"    return <${1:Example}Context.Provider value={{}}>{children}</${1:Example}Context.Provider>",
+			"}",
+			"",
+			"export default ${1:Example}Provider"
+		],
+		"description": "Create React Context Template"
+	}
+}
