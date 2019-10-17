@@ -52,6 +52,15 @@ const ContactForm: FunctionComponent<ContactFormProps> = () => {
         color="secondary"
         className="h-content w-content padding-horizontal-4 margin-horizontal-auto margin-vertical-2.5"
         disabled={!values.named || !values.title || !validity}
+        onClick={() => {
+          fetch(`https://yam-shlomo.herokuapp.com/contact-form`, {
+            method: `post`,
+            headers: {
+              'Content-Type': `application/json`
+            },
+            body: JSON.stringify(values)
+          })
+        }}
       >
         <Box className="fs-1.7">
           שליחה
