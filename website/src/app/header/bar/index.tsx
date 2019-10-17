@@ -5,21 +5,36 @@ import useTheme from '@material-ui/core/styles/useTheme'
 import { fade } from '@material-ui/core/styles/colorManipulator'
 import useScrollTrigger from '@material-ui/core/useScrollTrigger'
 import Toolbar from '@material-ui/core/Toolbar'
+import Typography from '@material-ui/core/Typography'
+import Box from '@material-ui/core/Box'
 
-export class BarProps { }
+export class BarProps {
+  backgroundColor?: string
+  logoHidden?: boolean
+  className?: string
+  shadow?: boolean
+}
 
-const Bar: FunctionComponent<BarProps> = ({ children }) => {
+const Bar: FunctionComponent<BarProps> = ({ children, backgroundColor, logoHidden, className = ``, shadow = false }) => {
   const
     theme = useTheme(),
-    { appBar } = makeStyles({ appBar: { backgroundColor: fade(theme.palette.primary.main, .7) } })({}),
+    { appBar } = makeStyles({ appBar: { backgroundColor: backgroundColor || fade(theme.palette.primary.main, .7) } })({}),
     trigger = useScrollTrigger({
       disableHysteresis: true,
       threshold: 0,
       // target: window ? window() : undefined,
     })
   return <>
-    <AppBar position="fixed" className={appBar} elevation={trigger ? 4 : 0}>
+    <AppBar position="fixed" className={`${appBar} ${className}`}
+      elevation={trigger && shadow ? 4 : 0}
+    >
       <Toolbar className="items-end">
+        <Box className={`flex-column margin-1 ${logoHidden ? `visibility-hidden` : ``}`}>
+          <img src="/images/icon/logo.svg" />
+          <Box color="secondary.light" clone>
+            <Typography variant="h4" component="h1" className="margin-top-0.5">ים שלמה</Typography>
+          </Box>
+        </Box>
         {children}
       </Toolbar>
     </AppBar>

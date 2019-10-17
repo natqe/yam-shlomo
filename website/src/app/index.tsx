@@ -5,6 +5,7 @@ import Main from './main'
 import CssBaseline from '@material-ui/core/CssBaseline'
 import GoTop from './goTop'
 import useScrollTrigger from '@material-ui/core/useScrollTrigger'
+import Footer from './footer'
 
 export class AppProps { }
 
@@ -13,8 +14,9 @@ const App: FunctionComponent<AppProps> = () => {
     <CssBaseline />
     <AppProviders>
       <Header />
+      <Footer />
       <Main />
-      <GoTop/>
+      {/* <GoTop/> */}
     </AppProviders>
   </>
 }

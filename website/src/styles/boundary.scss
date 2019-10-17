@@ -2,6 +2,9 @@ $boundaries: margin, padding;
 
 @each $boundary in $boundaries {
   .#{$boundary} {
+    &-auto{
+      #{$boundary}: auto !important;
+    }
     @for $i from 0 through 10{
       @for $y from 1 through 10 {
         &-#{$i}#{if($y != 10, '\\.' + $y, '')} {
@@ -14,19 +17,28 @@ $boundaries: margin, padding;
     }
     $sides: top, right, bottom, left;
     @each $side in $sides {
-       @for $i from 0 through 10{
-        @for $y from 1 through 10 {
-          &-#{$side}-#{$i}#{if($y != 10, '\\.' + $y, '')} {
-            #{$boundary}-#{$side}: #{$i}#{if($y != 10, '.' + $y, '')}rem !important;
-          }
-          &-#{$side}-minus-#{$i}#{if($y != 10, '\\.' + $y, '')} {
-            #{$boundary}-#{$side}: -#{$i}#{if($y != 10, '.' + $y, '')}rem !important;
+      &-#{$side}{
+        &-auto{
+          #{$boundary}-#{$side}: auto !important;
+        }
+        @for $i from 0 through 10{
+          @for $y from 1 through 10 {
+            &-#{$i}#{if($y != 10, '\\.' + $y, '')} {
+              #{$boundary}-#{$side}: #{$i}#{if($y != 10, '.' + $y, '')}rem !important;
+            }
+            &-minus-#{$i}#{if($y != 10, '\\.' + $y, '')} {
+              #{$boundary}-#{$side}: -#{$i}#{if($y != 10, '.' + $y, '')}rem !important;
+            }
           }
         }
       }
     }
 
     &-horizontal{
+      &-auto{
+        #{$boundary}-left: auto !important;
+        #{$boundary}-right: auto !important;
+      }
       @for $i from 0 through 10{
         @for $y from 1 through 10 {
           &-#{$i}#{if($y != 10, '\\.' + $y, '')} {
@@ -41,6 +53,10 @@ $boundaries: margin, padding;
       }
     }
     &-vertical{
+      &-auto{
+        #{$boundary}-top: auto !important;
+        #{$boundary}-bottom: auto !important;
+      }
       @for $i from 0 through 10{
         @for $y from 1 through 10 {
           &-#{$i}#{if($y != 10, '\\.' + $y, '')} {
@@ -58,5 +74,13 @@ $boundaries: margin, padding;
 }
 
 .radius{
-  border-radius: 50%;
+  border-radius: 50% !important;
+  @for $i from 0 through 10 {
+    @for $y from 1 through 10{
+     &-#{$i}#{if($y != 10, '\\.' + $y, '')} {
+       $size: #{$i}#{if($y != 10, '.' + $y, '')}rem !important;
+       border-radius: $size;
+     }
+   }
+ }
 }

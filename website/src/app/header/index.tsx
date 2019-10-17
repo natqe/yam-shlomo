@@ -1,37 +1,24 @@
 import Typography from '@material-ui/core/Typography'
 import Box from '@material-ui/core/Box'
 import React, { FunctionComponent } from 'react'
-import Tabs from '@material-ui/core/Tabs'
-import Tab from '@material-ui/core/Tab'
 import Bar from './bar'
+import Nav from './nav'
+import Divider from '@material-ui/core/Divider'
 
 export class HeaderProps { }
 
 const Header: FunctionComponent<HeaderProps> = () => {
   return <>
-    <Bar>
-      <div className="flex-column margin-1">
-        <img src="/images/icon/logo.svg" />
-        <Box color="secondary.light">
-          <Typography variant="h4" component="h1">ים שלמה</Typography>
-        </Box>
-      </div>
-      <Tabs value={0} className="margin-horizontal-2">
-        <Box color="secondary.light">
-          <Tab
-            className="fs-1.8"
-            component="a"
-            label="אודות"
-          />
-        </Box>
-        <Tab
-          className="fs-1.8"
-          component="a"
-          label="יצירת קשר"
-        />
-      </Tabs>
-    </Bar>
-    <img src="/images/cards/1.jpg" style={{ width: `100vw`, height: `100vh` }} />
+    <Bar />
+    <Nav />
+    <Box className="relative w-parent h-screen" color="common.white">
+      <Box className="absolute-middle text-center" style={{ textShadow: `0 0 15px rgba(0,0,0,.5), 0 0 10px rgba(0,0,0,.5)` }}>
+        <Typography variant="h2" component="h2" className="margin-top-0.5  space-nowrap" >המכון התורני מבית מדרשו של הינוקא</Typography>
+        <Box bgcolor="common.white" className="margin-horizontal-5 margin-vertical-1.5 padding-vertical-0.1" />
+        <Typography variant="h3" component="h3" className="margin-top-2" >לורם איפסום דולור סיט אמט, קונסקטורר אדיפיסינג אלית הועניב היושבב שערש שמחויט - שלושע</Typography>
+      </Box>
+      <img src="https://f7k6f9k9.ssl.hwcdn.net//media/764547/f0863617-07ac-4c82-93a5-b9a43473eac5.jpg?anchor=center&mode=crop&width=480&rnd=132137584070000000&bgcolor=33ddff" className="object-cover-center  w-parent h-parent" />
+    </Box>
   </>
 }
 

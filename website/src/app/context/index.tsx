@@ -10,6 +10,7 @@ const
   jss = create({ plugins: [...jssPreset().plugins, rtl()] }),
   theme = createMuiTheme({
     direction: 'rtl',
+    typography: { fontFamily: `'Varela Round', sans-serif` },
     palette: {
       primary: {
         light: `#4a6370`,

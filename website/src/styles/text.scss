@@ -1,8 +1,11 @@
 :root {
   --initial-1vh: calc(var(--initial-vh) / 100);
   --initial-1vw: calc(var(--initial-vw) / 100);
-  font-size: calc((var(--initial-1vh) / 4) + (var(--initial-1vw) / 4) + 10px);
-  font-family: Roboto, Arial, Helvetica, sans-serif;
+  font-size: calc((var(--initial-1vh) / 3) + (var(--initial-1vw) / 3) + 5px);
+}
+
+:root, body{
+  font-family: 'Varela Round', sans-serif !important;
 }
 
 .fs {
@@ -11,6 +14,31 @@
       &-#{$i}#{if($y != 10, '\\.' + $y, '')} {
         font-size: #{$i}#{if($y != 10, '.' + $y, '')}rem !important;
       }
+    }
+  }
+}
+
+.text-center{
+  text-align: center;
+}
+
+.text-right{
+  text-align: right;
+}
+
+.text-justify{
+  text-align: justify;
+}
+
+a{
+  color: inherit;
+    text-decoration: none;
+  >.border-bottom{
+    opacity: 0;
+  }
+  &:hover{
+    >.border-bottom{
+     opacity: 1;
     }
   }
 }
