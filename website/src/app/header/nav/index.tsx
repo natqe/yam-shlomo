@@ -21,7 +21,7 @@ const Nav: FunctionComponent<NavProps> = () => {
       }
     })({})
   return <>
-    <Bar backgroundColor="transparent" logoHidden className="margin-top-0.6" shadow={false}>
+    <Bar backgroundColor="transparent" logoHidden className="margin-top-0.3" shadow={false}>
       <Tabs value={value} className={`margin-horizontal-2 ${tabs}`}>
         <Tab
           className={`fs-1.8 ${value === 0 ? selectedTab : ``}`}
