@@ -3,7 +3,7 @@ import { createTransport } from 'nodemailer'
 import { SendMailDto } from './app.dto'
 import { from } from 'rxjs'
 import { mapTo } from 'rxjs/operators'
-import { GMAIL_USER, GMAIL_PASS } from './main.constants'
+import { GMAIL_USER, GMAIL_PASS, SEND_MAIL_TO } from './main.constants'
 
 @Controller(`/contact-form`)
 export class AppController {
@@ -19,7 +19,7 @@ export class AppController {
       }).
         sendMail({
           from: GMAIL_USER,
-          to: GMAIL_USER,
+          to: SEND_MAIL_TO,
           subject: `${named} אומר: ${title}`,
           text: content
         })
