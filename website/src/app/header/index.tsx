@@ -13,7 +13,7 @@ const Header: FunctionComponent<HeaderProps> = () => {
     <Bar />
     <Nav />
     <Box className="relative w-parent h-screen" color="common.white">
-      <Box className="absolute-middle text-center" style={{ textShadow: `0 0 15px rgba(0,0,0,.5), 0 0 10px rgba(0,0,0,.5)` }}>
+      <Box className="absolute-middle text-center" style={{ textShadow: `0 0 15px rgba(0,0,0,.5), 0 0 10px rgba(0,0,0,.5)`, minWidth: isMobile ? `80%`: `` }}>
         <Typography variant="h2" component="h2" className={`margin-top-0.5 ${isMobile ? ``: `space-nowrap`}`} >המכון התורני מבית מדרשו של הינוקא</Typography>
         <Box bgcolor="common.white" className="margin-horizontal-5 margin-vertical-1.5 padding-vertical-0.1" />
         <Typography variant="h3" component="h3" className="margin-top-2" >לורם איפסום דולור סיט אמט, קונסקטורר אדיפיסינג אלית הועניב היושבב שערש שמחויט - שלושע</Typography>
