@@ -22,7 +22,7 @@ const ContactForm: FunctionComponent<ContactFormProps> = () => {
         margin="normal"
         variant="outlined"
         className="margin-bottom-0.8"
-        InputLabelProps={{  shrink: true }}
+        InputLabelProps={{ shrink: true }}
       />
       <TextField
         {...text(`title`)}
@@ -33,7 +33,7 @@ const ContactForm: FunctionComponent<ContactFormProps> = () => {
         margin="normal"
         variant="outlined"
         className="margin-bottom-0.8"
-        InputLabelProps={{  shrink: true }}
+        InputLabelProps={{ shrink: true }}
       />
       <TextField
         {...textarea(`content`)}
@@ -44,7 +44,7 @@ const ContactForm: FunctionComponent<ContactFormProps> = () => {
         margin="normal"
         variant="outlined"
         className="margin-bottom-0.2"
-        InputLabelProps={{  shrink: true }}
+        InputLabelProps={{ shrink: true }}
       />
       <Fab
         variant="extended"

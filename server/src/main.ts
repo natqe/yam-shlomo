@@ -5,7 +5,12 @@ import { PORT } from './main.constants'
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule)
-  app.useGlobalPipes(new ValidationPipe())
+  app.
+    useGlobalPipes(new ValidationPipe()).
+    enableCors({
+      credentials: true,
+      origin: true
+    })
   await app.listen(PORT || 3000)
 }
 bootstrap()
