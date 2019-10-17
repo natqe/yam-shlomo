@@ -47,7 +47,7 @@ const Contact: FunctionComponent<ContactProps> = ({ open, close }) => {
         </Box>
       </Box>
       <Divider variant="middle" className="margin-horizontal-1.2 margin-top-1.5" />
-      <ContactForm />
+      <ContactForm onSubmit={close}/>
       <Box className="absolute bottom left margin-bottom-1 w-parent ">
         <Box bgcolor="primary.main" className="h-0.6 margin-horizontal-1.2" />
       </Box>

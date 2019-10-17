@@ -7,6 +7,7 @@ import useScrollTrigger from '@material-ui/core/useScrollTrigger'
 import Toolbar from '@material-ui/core/Toolbar'
 import Typography from '@material-ui/core/Typography'
 import Box from '@material-ui/core/Box'
+import { isMobile } from '../../../constants'
 
 export class BarProps {
   backgroundColor?: string
@@ -15,7 +16,7 @@ export class BarProps {
   shadow?: boolean
 }
 
-const Bar: FunctionComponent<BarProps> = ({ children, backgroundColor, logoHidden, className = ``, shadow = false }) => {
+const Bar: FunctionComponent<BarProps> = ({ children, backgroundColor, logoHidden, className = ``, shadow = false  }) => {
   const
     theme = useTheme(),
     { appBar } = makeStyles({ appBar: { backgroundColor: backgroundColor || fade(theme.palette.primary.main, .7) } })({}),
@@ -28,9 +29,10 @@ const Bar: FunctionComponent<BarProps> = ({ children, backgroundColor, logoHidde
     <AppBar position="fixed" className={`${appBar} ${className}`}
       elevation={trigger && shadow ? 4 : 0}
     >
+      {isMobile && <Box className="padding-vertical-1" bgcolor="primary.main"></Box>}
       <Toolbar className="items-end">
-        <Box className={`flex-column margin-1 ${logoHidden ? `visibility-hidden` : ``}`}>
-          <img src="/images/icon/logo.svg" />
+        <Box className={`flex-column margin-1 content-center ${logoHidden ? `visibility-hidden` : ``}`}>
+          <img src="/images/icon/logo.svg" style={{ width: isMobile ? `30px`: `` }} className="margin-horizontal-auto margin-top-1"/>
           <Box color="secondary.light" clone>
             <Typography variant="h4" component="h1" className="margin-top-0.5">ים שלמה</Typography>
           </Box>
