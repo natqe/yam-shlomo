@@ -8,7 +8,7 @@ import size from 'lodash/size'
 export class ContactFormProps { }
 
 const ContactForm: FunctionComponent<ContactFormProps> = () => {
-  const [{ errors, values, validity }, { text, textarea }] = useFormState();
+  const [{ errors, values: { named, title, content }, validity }, { text, textarea }] = useFormState();
   return <>
     <Box className="flex-column margin-1.5">
       <Box className="fs-1.7 margin-top-0.2">שליחת מסר</Box>
@@ -51,14 +51,16 @@ const ContactForm: FunctionComponent<ContactFormProps> = () => {
         size="large"
         color="secondary"
         className="h-content w-content padding-horizontal-4 margin-horizontal-auto margin-vertical-2.5"
-        disabled={!values.named || !values.title || !validity}
+        disabled={!named || !title || !validity}
         onClick={() => {
-          fetch(`https://yam-shlomo.herokuapp.com/contact-form`, {
+          fetch(`https://inquiries-receiver.herokuapp.com/mailto`, {
             method: `post`,
-            headers: {
-              'Content-Type': `application/json`
-            },
-            body: JSON.stringify(values)
+            headers: { 'Content-Type': `application/json` },
+            body: JSON.stringify({
+              to: `arigold054@gmail.com`,
+              subject: `${named} אומר: ${title}`,
+              text: content
+            })
           })
         }}
       >
