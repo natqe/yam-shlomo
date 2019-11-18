@@ -42,3 +42,19 @@ a{
     }
   }
 }
+
+$weightList: normal, bold, bolder, lighter;
+
+.fw{
+  @each $weight in $weightList {
+    &-#{$weight}{
+      font-weight: $weight;
+    }
+  }
+
+  @for $n from 1 through 9 {
+    &-#{$n}{
+      font-weight: #{$n * 100};
+    }
+  }
+}
