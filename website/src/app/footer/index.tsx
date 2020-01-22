@@ -6,7 +6,7 @@ import Call from '@material-ui/icons/Call'
 export class FooterProps { }
 
 const Footer: FunctionComponent<FooterProps> = () => {
-  const tel = `+972-02-5306-506`
+  const tel = `+972-2-5306-506`
   return <>
     <Box className="fixed bottom left right w-parent margin-bottom-1.5" >
       <Box className="padding-vertical-1.2" bgcolor="primary.main"></Box>
