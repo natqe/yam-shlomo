@@ -14,7 +14,7 @@ export class ContactProps {
 const Contact: FunctionComponent<ContactProps> = ({ open, close }) => {
   const
     tel = `+972-52-202-5353`,
-    mail = `name@rapidtables.com`
+    mail = `m.yam.shlomo@gmail.com`
   return <>
     <Drawer anchor="right" open={open} className="relative">
       <IconButton className="absolute top left" onClick={close} color="primary">

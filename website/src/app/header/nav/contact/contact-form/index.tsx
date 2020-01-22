@@ -65,7 +65,7 @@ const ContactForm: FunctionComponent<ContactFormProps> = ({ onSubmit = () => nul
               method: `post`,
               headers: { 'Content-Type': `application/json` },
               body: JSON.stringify({
-                to: `arigold054@gmail.com`,
+                to: `m.yam.shlomo@gmail.com`,
                 subject: `${named} אומר: ${title}`,
                 text: content
               })
